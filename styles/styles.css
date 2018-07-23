@@ -1,0 +1,114 @@
+html {
+  width: 100%;
+  font-family: 'Gudea', sans-serif; }
+
+.heading {
+  font-family: 'Share Tech', sans-serif; }
+
+a {
+  text-decoration: none;
+  color: #F5CD61;
+  margin: 1rem; }
+
+nav {
+  color: #FBEEC1;
+  background-color: #050505; }
+
+.inline {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex; }
+
+.block {
+  display: block; }
+
+button {
+  border-radius: 1rem;
+  padding: 1rem;
+  color: #F5CD61;
+  margin-left: 2rem; }
+
+.section {
+  padding: 5rem;
+  width: 100%; }
+
+.fa-instagram {
+  margin-left: 5rem; }
+
+.fa-facebook {
+  margin-left: 10rem; }
+
+#upper-nav {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%; }
+  #upper-nav div {
+    padding: 1rem;
+    margin: 1rem; }
+  #upper-nav ul {
+    margin: 1rem;
+    margin-left: 20%; }
+
+header .left-header {
+  margin: auto; }
+header .right-header {
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem; }
+  header .right-header img {
+    width: 125%; }
+
+article {
+  background-color: #FAFAD0;
+  color: #8D8741; }
+  article .container-fluid {
+    width: 90%;
+    margin-top: 3rem;
+    margin-left: 0; }
+    article .container-fluid #goal {
+      margin-top: 5rem; }
+    article .container-fluid .deco-pic {
+      width: 70%; }
+    article .container-fluid .person-pic {
+      width: 50%; }
+    article .container-fluid div[class^="right"] {
+      text-align: right; }
+    article .container-fluid div[class^="center"] {
+      text-align: center; }
+    article .container-fluid .row {
+      width: 100%;
+      margin-left: 20%; }
+  article aside {
+    background-color: #F5CD61;
+    height: 80%; }
+  article button {
+    margin-left: 40%;
+    margin-top: 2rem;
+    margin-bottom: 2rem; }
+
+article[class^="white"] {
+  background-color: white; }
+
+footer {
+  background-color: #050505;
+  color: #FBEEC1; }
+  footer .container-fluid {
+    width: 50%;
+    margin-right: 0; }
+    footer .container-fluid div[class^="col"] {
+      margin-right: 1rem;
+      border-style: solid;
+      border-color: #EFF1F7;
+      border-width: 0.05rem;
+      border-radius: 1rem;
+      margin-top: 1rem;
+      text-align: center;
+      background-color: #EFF1F7; }
+  footer nav {
+    margin-right: 10rem; }
+  footer .copyright {
+    margin-top: 10rem;
+    text-align: auto; }
+
+/*# sourceMappingURL=styles.css.map */
