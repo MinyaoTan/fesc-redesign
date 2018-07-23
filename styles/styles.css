@@ -76,9 +76,6 @@ article {
       text-align: right; }
     article .container-fluid div[class^="center"] {
       text-align: center; }
-    article .container-fluid .row {
-      width: 100%;
-      margin-left: 20%; }
   article aside {
     background-color: #F5CD61;
     height: 80%; }
