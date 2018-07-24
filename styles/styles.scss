@@ -1,10 +1,5 @@
-$non-article-text-color: #FBEEC1;
-$article-text-color: #8D8741;
-$edge-bg-color: #050505;
-$link-color: #F5CD61;
-$article-bg-color: #FAFAD0;
-$article-bg-color2: white;
-$university-icon-color: #EFF1F7;
+@import 'globals/colors';
+@import 'components/footer';
 
 html {
 	width: 100%;
@@ -26,8 +21,8 @@ nav {
 	background-color: $edge-bg-color;
 }
 
-.inline {
-	display: inline-flex;
+.margin-bottom {
+	margin-bottom: 10rem;
 }
 
 .block {
@@ -46,44 +41,31 @@ button {
 	width: 100%;
 }
 
-.fa-instagram {
-	margin-left: 5rem;
-}
-
-.fa-facebook {
+.fa-twitter {
 	margin-left: 10rem;
 }
 
+.fa-instagram {
+	margin-left: 15rem;
+}
+
+.fa-facebook {
+	margin-left: 20rem;
+}
+
 #upper-nav {
-	display: inline-flex;
 	width: 100%;
 
-	div	{
-		padding: 1rem;
-		margin: 1rem;
-
-	}
-
-	ul {
-		margin: 1rem;
-		margin-left: 20%;
+	.container-fluid {
+		padding: 2rem;
+		padding-bottom: 3rem;
 	}
 }
 
 header {
 
-	.left-header {
-		margin: auto;
-	}
-
-	.right-header {
-		margin: auto;
-		margin-top: 1rem;
-		margin-bottom: 1rem;
-
-		img {
-			width: 125%;
-		}
+	img {
+		width: 100%;
 	}
 }
 
@@ -92,7 +74,7 @@ article {
 	color: $article-text-color;
 
 	.container-fluid {
-		width: 90%;
+		width: 100%;
 		margin-top: 3rem;
 		margin-left: 0;
 
@@ -120,6 +102,10 @@ article {
 	aside {
 		background-color: $link-color;
 		height: 80%;
+
+		img {
+			width: 100%;
+		}
 	}
 
 	button {
@@ -131,34 +117,4 @@ article {
 
 article[class^="white"] {
 	background-color: $article-bg-color2;
-}
-
-footer {
-	background-color: $edge-bg-color;
-	color: $non-article-text-color;
-
-	.container-fluid {
-		width: 50%;
-		margin-right: 0;
-
-		div[class^="col"] {
-			margin-right: 1rem;
-			border-style: solid;
-			border-color: $university-icon-color;
-			border-width: 0.05rem;
-			border-radius: 1rem;
-			margin-top: 1rem;
-			text-align: center;
-			background-color: $university-icon-color;
-		}
-	}
-
-	nav {
-		margin-right: 10rem;
-	}
-
-	.copyright {
-		margin-top: 10rem;
-		text-align: auto;
-	}
 }

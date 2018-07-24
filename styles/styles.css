@@ -1,3 +1,23 @@
+footer {
+  background-color: #050505;
+  color: #FBEEC1; }
+  footer .container-fluid {
+    width: 100%;
+    text-align: center; }
+    footer .container-fluid div[class^="col"]:first-child div[class^="col"] {
+      padding: 1rem;
+      margin-right: 0;
+      border-style: solid;
+      border-color: #050505;
+      border-width: 0.5rem;
+      border-radius: 1rem;
+      margin-top: 1rem;
+      text-align: center;
+      background-color: #EFF1F7; }
+  footer .copyright {
+    margin-top: 10rem;
+    text-align: auto; }
+
 html {
   width: 100%;
   font-family: 'Gudea', sans-serif; }
@@ -14,10 +34,8 @@ nav {
   color: #FBEEC1;
   background-color: #050505; }
 
-.inline {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex; }
+.margin-bottom {
+  margin-bottom: 10rem; }
 
 .block {
   display: block; }
@@ -32,38 +50,29 @@ button {
   padding: 5rem;
   width: 100%; }
 
-.fa-instagram {
-  margin-left: 5rem; }
-
-.fa-facebook {
+.fa-twitter {
   margin-left: 10rem; }
 
-#upper-nav {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  width: 100%; }
-  #upper-nav div {
-    padding: 1rem;
-    margin: 1rem; }
-  #upper-nav ul {
-    margin: 1rem;
-    margin-left: 20%; }
+.fa-instagram {
+  margin-left: 15rem; }
 
-header .left-header {
-  margin: auto; }
-header .right-header {
-  margin: auto;
-  margin-top: 1rem;
-  margin-bottom: 1rem; }
-  header .right-header img {
-    width: 125%; }
+.fa-facebook {
+  margin-left: 20rem; }
+
+#upper-nav {
+  width: 100%; }
+  #upper-nav .container-fluid {
+    padding: 2rem;
+    padding-bottom: 3rem; }
+
+header img {
+  width: 100%; }
 
 article {
   background-color: #FAFAD0;
   color: #8D8741; }
   article .container-fluid {
-    width: 90%;
+    width: 100%;
     margin-top: 3rem;
     margin-left: 0; }
     article .container-fluid #goal {
@@ -79,6 +88,8 @@ article {
   article aside {
     background-color: #F5CD61;
     height: 80%; }
+    article aside img {
+      width: 100%; }
   article button {
     margin-left: 40%;
     margin-top: 2rem;
@@ -86,26 +97,5 @@ article {
 
 article[class^="white"] {
   background-color: white; }
-
-footer {
-  background-color: #050505;
-  color: #FBEEC1; }
-  footer .container-fluid {
-    width: 50%;
-    margin-right: 0; }
-    footer .container-fluid div[class^="col"] {
-      margin-right: 1rem;
-      border-style: solid;
-      border-color: #EFF1F7;
-      border-width: 0.05rem;
-      border-radius: 1rem;
-      margin-top: 1rem;
-      text-align: center;
-      background-color: #EFF1F7; }
-  footer nav {
-    margin-right: 10rem; }
-  footer .copyright {
-    margin-top: 10rem;
-    text-align: auto; }
 
 /*# sourceMappingURL=styles.css.map */
