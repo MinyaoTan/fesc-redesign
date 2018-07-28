@@ -1,0 +1,30 @@
+@import 'globals/colors';
+@import 'globals/hover';
+
+html {
+	width: 100%;
+	font-family: 'Gudea', sans-serif;
+}
+
+.heading {
+	font-family: 'Share Tech', sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: $highlight;
+}
+
+button {
+	border-radius: 1rem;
+	padding: 1rem;
+	color: $button-color;
+	margin-left: 2rem;
+	background-color: $button-bg-color;
+	@include hoverEffect($button-color);
+}
+
+.section {
+	padding: 5rem;
+	width: 100%;
+}

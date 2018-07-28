@@ -1,0 +1,30 @@
+@import 'globals/breakpoint';
+
+@media screen and (max-width: $large) {
+  .upper-nav a {
+  	display: none;
+  }
+
+  .upper-nav a.icon {
+    float: left;
+    display: block;
+  }
+}
+
+@media screen and (max-width: $large) {
+  .upper-nav.responsive {
+  	position: relative;
+
+  	.icon {
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	  }
+
+	  a {
+	    float: none;
+	    display: block;
+	    text-align: right;
+	  }
+  }
+}

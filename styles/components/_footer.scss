@@ -1,6 +1,13 @@
+@import 'globals/colors';
+@import 'globals/hover';
+
 footer {
 	background-color: $edge-bg-color;
-	color: $non-article-text-color;
+	color: $brand;
+
+	.margin-bottom {
+		margin-bottom: 10rem;
+	}
 
 	.container-fluid {
 		width: 100%;
@@ -17,10 +24,22 @@ footer {
 			text-align: center;
 			background-color: $university-icon-color;
 		}
+
+		nav a {
+			@include hoverEffect($highlight)
+		}
+
+		ul {
+			display: inline-flex;
+			margin-left: 30%;
+			text-align: center;
+		}
 	}
 
 	.copyright {
 		margin-top: 10rem;
 		text-align: auto;
 	}
+
+	
 }

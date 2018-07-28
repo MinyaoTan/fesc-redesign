@@ -1,5 +1,7 @@
 @import 'globals/colors';
 @import 'components/footer';
+@import 'components/nav';
+@import 'components/media-query';
 
 html {
 	width: 100%;
@@ -12,12 +14,11 @@ html {
 
 a {
 	text-decoration: none;
-	color: $link-color;
-	margin: 1rem;
+	color: $highlight;
 }
 
 nav {
-	color: $non-article-text-color;
+	color: $brand;
 	background-color: $edge-bg-color;
 }
 
@@ -32,7 +33,7 @@ nav {
 button {
 	border-radius: 1rem;
 	padding: 1rem;
-	color: $link-color;
+	color: $highlight;
 	margin-left: 2rem;
 }
 
@@ -42,24 +43,15 @@ button {
 }
 
 .fa-twitter {
-	margin-left: 10rem;
+	margin-left: 25%;
 }
 
 .fa-instagram {
-	margin-left: 15rem;
+	margin-left: 50%;
 }
 
 .fa-facebook {
-	margin-left: 20rem;
-}
-
-#upper-nav {
-	width: 100%;
-
-	.container-fluid {
-		padding: 2rem;
-		padding-bottom: 3rem;
-	}
+	margin-left: 75%;
 }
 
 header {
@@ -100,7 +92,7 @@ article {
 	}
 
 	aside {
-		background-color: $link-color;
+		background-color: $highlight;
 		height: 80%;
 
 		img {

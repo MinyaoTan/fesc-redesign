@@ -1,0 +1,28 @@
+@import 'globals/colors';
+
+@import 'components/common-styles';
+@import 'components/nav';
+@import 'components/media-query';
+@import 'components/header';
+@import 'components/article';
+@import 'components/footer';
+
+article {
+	.container-fluid {
+		.deco-pic {
+			width: 70%;
+		}
+
+		.person-pic {
+			width: 50%;
+		}
+
+		div[class^="center"] {
+			text-align: center;
+		}
+	}
+}
+
+article[class^="white"] {
+	background-color: $article-bg-color2;
+}

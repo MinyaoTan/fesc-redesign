@@ -1,0 +1,27 @@
+@import 'globals/colors';
+
+.upper-nav {
+	width: 100%;
+	color: $brand;
+	background-color: $edge-bg-color;
+
+	a {
+	  float: left;
+	  display: block;
+	  color: $brand;
+	  text-align: center;
+	  padding: 2rem 2rem;
+	  text-decoration: none;
+	  font-size: 17px;
+	}
+
+	.icon {
+		display: none;
+	}
+
+	a:hover {
+		background-color: $brand;
+	  	color: $edge-bg-color;
+	  	text-decoration: none;
+	}
+}
