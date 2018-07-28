@@ -8,16 +8,16 @@
 		<link href="https://fonts.googleapis.com/css?family=Share+Tech" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="styles/styles.css">
+		<link rel="stylesheet" type="text/css" href="styles/index.css">
 		<title>FESC</title>
 	</head>
 
 	<body>
-		<nav id="upper-nav">
+		<nav class="upper-nav" id="myTopNav">
 			<div class="container-fluid">
     		<div class="row">
-      		<div class="col-md-8 col-sm-12">
-						<a href="index.html">Home</a>
+      		<div class="col-md-12">
+			      <a href="index.html">Home</a>
 						<a href="research.html">FESC Research</a>
 						<a href="#">Education</a>
 						<a href="#">Outreach</a>
@@ -25,16 +25,10 @@
 						<a href="#">Energy Industry</a>
 						<a href="#">Advisory Board</a>
 						<a href="contact.html">Contact Us</a>
+						<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+					    <i class="fa fa-bars fa-2x"></i>
+					  </a>
 					</div>
-
-					<!-- To do: social media icon -->
-					<div class="right-align col-md-4 col-sm-12">
-						<ul class="fa-ul">
-			        <li><i class="fa-li fa fa-twitter fa-2x"></i></li>
-			        <li><i class="fa-li fa fa-instagram fa-2x"></i></li>
-			        <li><i class="fa-li fa fa-facebook fa-2x"></i></li>
-			      </ul>
-			    </div>
 			  </div>
 			</div>
 		</nav>
@@ -92,7 +86,7 @@
 	      			<aside>
 								<img src="images/header_logo.png" alt="FESC">
 
-								<a href="http://www.floridaenergy.ufl.edu/wp-content/uploads/fesc_brochure_10_11-2015.pdf"><button>Download Brochure</button></a>
+								<a href="http://www.floridaenergy.ufl.edu/wp-content/uploads/fesc_brochure_10_11-2015.pdf" target="_blank"><button>Download Brochure</button></a>
 							</aside>
 	      		</div>
 	      	</div>
@@ -161,11 +155,17 @@
 
       		<div class="col-md-3 col-sm-12">
       			<nav class="margin-bottom">	
-							<a href="#">Contact Us</a>
+							<p><a href="#">Contact Us</a></p>
 							<p>Telephone: 352 294 2027</p>
 							<p>272 Grinter Hall</p>
 							<p>P.O. Box 115500</p>
 							<p>Gainesville, FL 32611-5500</p>
+
+							<ul class="fa-ul">
+				        <li><a href="https://twitter.com/FESC_UF" class="fa-li fa fa-twitter fa-2x" target="_blank"></a></li>
+				        <li><a href="#" class="fa-li fa fa-instagram fa-2x"></a></li>
+				        <li><a href="https://www.facebook.com/FLEnergySC/" class="fa-li fa fa-facebook fa-2x" target="_blank"></a></li>
+				      </ul>
 						</nav>
       		</div>
 
@@ -188,5 +188,7 @@
       	</div>
 			</div>
 		</footer>
+
+		<script src="scripts/script.js"></script>
 	</body>
 </html>

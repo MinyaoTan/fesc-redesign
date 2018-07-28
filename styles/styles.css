@@ -1,6 +1,8 @@
 footer {
   background-color: #050505;
   color: #FBEEC1; }
+  footer .margin-bottom {
+    margin-bottom: 10rem; }
   footer .container-fluid {
     width: 100%;
     text-align: center; }
@@ -17,7 +19,59 @@ footer {
   footer .copyright {
     margin-top: 10rem;
     text-align: auto; }
+  footer .fa-twitter {
+    margin-left: 25%; }
+  footer .fa-instagram {
+    margin-left: 50%; }
+  footer .fa-facebook {
+    margin-left: 75%; }
 
+.upper-nav {
+  width: 100%;
+  color: #FBEEC1;
+  background-color: #050505; }
+  .upper-nav a {
+    float: left;
+    display: block;
+    color: #FBEEC1;
+    text-align: center;
+    padding: 2rem 2rem;
+    text-decoration: none;
+    font-size: 17px; }
+  .upper-nav .icon {
+    display: none; }
+  .upper-nav a:hover {
+    background-color: #FBEEC1;
+    color: #050505;
+    text-decoration: none; }
+
+@media screen and (max-width: 960px) {
+  .upper-nav a {
+    display: none; }
+
+  .upper-nav a.icon {
+    float: left;
+    display: block; }
+
+  .fa-twitter {
+    margin-left: 30%; }
+
+  .fa-instagram {
+    margin-left: 50%; }
+
+  .fa-facebook {
+    margin-left: 70%; } }
+@media screen and (max-width: 960px) {
+  .upper-nav.responsive {
+    position: relative; }
+    .upper-nav.responsive .icon {
+      position: absolute;
+      left: 0;
+      top: 0; }
+    .upper-nav.responsive a {
+      float: none;
+      display: block;
+      text-align: right; } }
 html {
   width: 100%;
   font-family: 'Gudea', sans-serif; }
@@ -27,8 +81,7 @@ html {
 
 a {
   text-decoration: none;
-  color: #F5CD61;
-  margin: 1rem; }
+  color: #F5CD61; }
 
 nav {
   color: #FBEEC1;
@@ -51,19 +104,13 @@ button {
   width: 100%; }
 
 .fa-twitter {
-  margin-left: 10rem; }
+  margin-left: 25%; }
 
 .fa-instagram {
-  margin-left: 15rem; }
+  margin-left: 50%; }
 
 .fa-facebook {
-  margin-left: 20rem; }
-
-#upper-nav {
-  width: 100%; }
-  #upper-nav .container-fluid {
-    padding: 2rem;
-    padding-bottom: 3rem; }
+  margin-left: 75%; }
 
 header img {
   width: 100%; }
@@ -97,4 +144,5 @@ article {
 
 article[class^="white"] {
   background-color: white; }
+
 /*# sourceMappingURL=styles.css.map */
