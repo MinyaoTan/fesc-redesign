@@ -9,6 +9,9 @@ a {
   text-decoration: none;
   color: #F5CD61; }
 
+p {
+  font-size: 16px; }
+
 button {
   border-radius: 1rem;
   padding: 1rem;
@@ -148,4 +151,5 @@ article .container-fluid div[class^="center"] {
 
 article[class^="white"] {
   background-color: white; }
+
 /*# sourceMappingURL=contact.css.map */
