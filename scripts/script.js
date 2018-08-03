@@ -121,4 +121,3 @@ function formatNumbers(idName, title1, title2) {
 
 
 
-
