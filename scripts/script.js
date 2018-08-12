@@ -38,7 +38,7 @@ function getData() {
     }
 
     energyResponse = JSON.parse(energyRequest.response)
-    let headerArray = ["title", "other title"];
+    let headerArray = ["Year", "Renewable energy production"];
     energyResponse.series[0].data.unshift(headerArray);
     drawEnergyLineChart(energyResponse.series[0].data);
   }
@@ -51,7 +51,7 @@ function getData() {
     }
 
     electricityResponse = JSON.parse(electricityRequest.response)
-    let headerArray = ["title", "other title"];
+    let headerArray = ["Year", "Electricity total consumption"];
     electricityResponse.series[0].data.unshift(headerArray);
     drawElectricityLineChart(electricityResponse.series[0].data);
   }
