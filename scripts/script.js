@@ -24,8 +24,8 @@ function getData() {
   let electricityRequest = new XMLHttpRequest()
 
   // TODO: URL to contact goes here
-  let energyRequestUrl = "http://api.eia.gov/series/?api_key=7db5bdd7fcd56a23243294af7c7aa449&series_id=SEDS.REPRB.FL.A"
-  let electricityRequestUrl = "http://api.eia.gov/series/?api_key=7db5bdd7fcd56a23243294af7c7aa449&series_id=SEDS.TETCB.FL.A"
+  let energyRequestUrl = "https://api.eia.gov/series/?api_key=7db5bdd7fcd56a23243294af7c7aa449&series_id=SEDS.REPRB.FL.A"
+  let electricityRequestUrl = "https://api.eia.gov/series/?api_key=7db5bdd7fcd56a23243294af7c7aa449&series_id=SEDS.TETCB.FL.A"
   // Open a connection
   energyRequest.open('GET', energyRequestUrl, true)
   electricityRequest.open('GET', electricityRequestUrl, true)
