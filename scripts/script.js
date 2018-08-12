@@ -7,14 +7,66 @@ function myFunction() {
   }
 }
 
-google.charts.load('current', {'packages':['corechart']});
+function onDOMLoad() {
+  //load google library
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(getData);
+}
 
-var energyData = formatNumbers("energy-data", "Year", "Renewable Energy");
-var electricityData = formatNumbers("electricity-data", "Year", "Electricity Consumption");
+document.addEventListener("DOMContentLoaded", onDOMLoad);
 
-google.charts.setOnLoadCallback(drawEnergyLineChart);
-google.charts.setOnLoadCallback(drawElectricityLineChart);
-//google.charts.setOnLoadCallback(drawComboLineChart);
+var loaded = true
+var energyResponse
+var electricityResponse
+function getData() {
+  // Create a new request object
+  let energyRequest = new XMLHttpRequest()
+  let electricityRequest = new XMLHttpRequest()
+
+  // TODO: URL to contact goes here
+  let energyRequestUrl = "http://api.eia.gov/series/?api_key=7db5bdd7fcd56a23243294af7c7aa449&series_id=SEDS.REPRB.FL.A"
+  let electricityRequestUrl = "http://api.eia.gov/series/?api_key=7db5bdd7fcd56a23243294af7c7aa449&series_id=SEDS.TETCB.FL.A"
+  // Open a connection
+  energyRequest.open('GET', energyRequestUrl, true)
+  electricityRequest.open('GET', electricityRequestUrl, true)
+  // Callback for when the request completes
+  energyRequest.onload = function() {
+    if (energyRequest.status !== 200) {
+      console.log("Something went wrong: ", energyRequest)
+      loaded = false
+      return
+    }
+
+    energyResponse = JSON.parse(energyRequest.response)
+    let headerArray = ["title", "other title"];
+    energyResponse.series[0].data.unshift(headerArray);
+    drawEnergyLineChart(energyResponse.series[0].data);
+  }
+
+  electricityRequest.onload = function() {
+    if (electricityRequest.status !== 200) {
+      console.log("Something went wrong: ", electricityRequest)
+      loaded = false
+      return
+    }
+
+    electricityResponse = JSON.parse(electricityRequest.response)
+    let headerArray = ["title", "other title"];
+    electricityResponse.series[0].data.unshift(headerArray);
+    drawElectricityLineChart(electricityResponse.series[0].data);
+  }
+  // Callback for when there's an error
+  energyRequest.error = function(err){
+    console.log("error is: ", err)
+  }
+
+  electricityRequest.error = function(err){
+    console.log("error is: ", err)
+  }
+  // Send the request to the specified URL
+  energyRequest.send()
+  electricityRequest.send()
+}
 
 if (window.addEventListener) {
     window.addEventListener('resize', resize);
@@ -25,36 +77,38 @@ else {
 
 var toggleButton = document.getElementById("toggle");
 toggleButton.addEventListener('click', function() {
-	toggleButton.disabled = true;
-	if (toggleButton.innerHTML === "Combine Charts") {
-		toggleButton.innerHTML = "Split Chart";
+  if (loaded) {
+  	toggleButton.disabled = true;
+  	if (toggleButton.innerHTML === "Combine Charts") {
+  		toggleButton.innerHTML = "Split Chart";
 
-		document.getElementById("electricity-chart-parent").style.display = "none";
-		document.getElementById("energy-chart").innerHTML = "";
-		drawComboLineChart();
+  		document.getElementById("electricity-chart-parent").style.display = "none";
+  		document.getElementById("energy-chart").innerHTML = "";
+  		drawComboLineChart();
 
-	} else {
-		toggleButton.innerHTML = "Combine Charts";
-		document.getElementById("electricity-chart-parent").style.display = "block";
-		document.getElementById("energy-chart").innerHTML = "";
-		drawEnergyLineChart();
-	}
+  	} else {
+  		toggleButton.innerHTML = "Combine Charts";
+  		document.getElementById("electricity-chart-parent").style.display = "block";
+  		document.getElementById("energy-chart").innerHTML = "";
+  		drawEnergyLineChart(energyResponse.series[0].data);
+  	}
 
-	toggleButton.disabled = false;
+  	toggleButton.disabled = false;
+  }
 })
 
 function resize () {
     // change dimensions if necessary
     if (toggleButton.innerHTML === "Combine Charts") {
-	    drawEnergyLineChart();
-	    drawElectricityLineChart();
+	    drawEnergyLineChart(energyResponse.series[0].data);
+	    drawElectricityLineChart(electricityResponse.series[0].data);
 	  } else {
 	  	drawComboLineChart();
 	  }   
 }
 
-function drawEnergyLineChart() {
-  let data = google.visualization.arrayToDataTable(energyData);
+function drawEnergyLineChart(freshData) {
+  let data = google.visualization.arrayToDataTable(freshData);
 
   let options = {
     title: "Renewable energy production Florida",
@@ -68,8 +122,8 @@ function drawEnergyLineChart() {
   chart.draw(data, options);
 }
 
-function drawElectricityLineChart() {
-  let data = google.visualization.arrayToDataTable(electricityData);
+function drawElectricityLineChart(freshData) {
+  let data = google.visualization.arrayToDataTable(freshData);
 
   let options = {
     title: "Electricity total consumption (i.e. sold) Florida",
@@ -84,8 +138,11 @@ function drawElectricityLineChart() {
 }
 
 function drawComboLineChart() {
-	let data1 = google.visualization.arrayToDataTable(energyData);
-  let data2 = google.visualization.arrayToDataTable(electricityData);
+  let headerArray1 = ["title", "other title"];
+	let data1 = google.visualization.arrayToDataTable(energyResponse.series[0].data);
+
+  let headerArray2 = ["title", "other title"];
+  let data2 = google.visualization.arrayToDataTable(electricityResponse.series[0].data);
 
   let options = {
     title: "Florida Renewable Energy Production v.s. Electricity Consumption",
@@ -98,25 +155,6 @@ function drawComboLineChart() {
   let chart = new google.visualization.LineChart(document.getElementById("energy-chart"));
 
   chart.draw(joinedData, options);
-}
-
-
-function formatNumbers(idName, title1, title2) {
-	let div = document.getElementById(idName);
-	let data = div.innerHTML.trim();
-	let lineBreak = data.charAt(11);
-	let entries = data.split(lineBreak);
-	entries = entries.reverse();
-
-	for (let i = 0; i < entries.length; i ++) {
-		entries[i] = entries[i].trim();
-		let arrayElements = entries[i].split(",");
-		let array = [arrayElements[0], Number(arrayElements[1])];
-		entries[i] = array;
-	}
-
-	entries.unshift([title1, title2]);
-	return entries;
 }
 
 
