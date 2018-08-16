@@ -11,9 +11,18 @@ function onDOMLoad() {
   //load google library
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(getData);
+
+  let app = new Vue({
+    el: '#app'
+  })
 }
 
 document.addEventListener("DOMContentLoaded", onDOMLoad);
+
+Vue.component('midsection', {
+  props: ['heading', 'content'],
+  template: '<div class="col-md-6 col-sm-12"><h2 class="heading">{{heading}}</h2><p>{{content}}</p></div>'
+})
 
 var loaded = true
 var energyResponse
