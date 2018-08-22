@@ -84,36 +84,34 @@ else {
     window.attachEvent('onresize', resize);
 }
 
-var toggleButton = document.getElementById("toggle");
-toggleButton.addEventListener('click', function() {
-  if (loaded) {
-  	toggleButton.disabled = true;
-  	if (toggleButton.innerHTML === "Combine Charts") {
-  		toggleButton.innerHTML = "Split Chart";
+//var toggleButton = document.getElementById("toggle");
+// toggleButton.addEventListener("click", function() {
+//   console.log("clicked")
+//   if (loaded) {
+//   	toggleButton.disabled = true;
+//   	if (toggleButton.innerHTML === "Combine Charts") {
+//   		toggleButton.innerHTML = "Split Chart";
 
-  		document.getElementById("electricity-chart-parent").style.display = "none";
-  		document.getElementById("energy-chart").innerHTML = "";
-  		drawComboLineChart();
+//   		document.getElementById("electricity-chart-parent").style.display = "none";
+//   		document.getElementById("energy-chart").innerHTML = "";
+//       console.log("combine");
+//   		drawComboLineChart();
 
-  	} else {
-  		toggleButton.innerHTML = "Combine Charts";
-  		document.getElementById("electricity-chart-parent").style.display = "block";
-  		document.getElementById("energy-chart").innerHTML = "";
-  		drawEnergyLineChart(energyResponse.series[0].data);
-  	}
+//   	} else {
+//   		toggleButton.innerHTML = "Combine Charts";
+//   		document.getElementById("electricity-chart-parent").style.display = "block";
+//   		document.getElementById("energy-chart").innerHTML = "";
+//   		drawEnergyLineChart(energyResponse.series[0].data);
+//   	}
 
-  	toggleButton.disabled = false;
-  }
-})
+//   	toggleButton.disabled = false;
+//   }
+// })
 
 function resize () {
     // change dimensions if necessary
-    if (toggleButton.innerHTML === "Combine Charts") {
-	    drawEnergyLineChart(energyResponse.series[0].data);
-	    drawElectricityLineChart(electricityResponse.series[0].data);
-	  } else {
-	  	drawComboLineChart();
-	  }   
+  drawEnergyLineChart(energyResponse.series[0].data);
+  drawElectricityLineChart(electricityResponse.series[0].data);
 }
 
 function drawEnergyLineChart(freshData) {
@@ -146,24 +144,24 @@ function drawElectricityLineChart(freshData) {
   chart.draw(data, options);
 }
 
-function drawComboLineChart() {
-  let headerArray1 = ["title", "other title"];
-	let data1 = google.visualization.arrayToDataTable(energyResponse.series[0].data);
+// function drawComboLineChart() {
+//   let headerArray1 = ["title", "other title"];
+// 	let data1 = google.visualization.arrayToDataTable(energyResponse.series[0].data);
 
-  let headerArray2 = ["title", "other title"];
-  let data2 = google.visualization.arrayToDataTable(electricityResponse.series[0].data);
+//   let headerArray2 = ["title", "other title"];
+//   let data2 = google.visualization.arrayToDataTable(electricityResponse.series[0].data);
 
-  let options = {
-    title: "Florida Renewable Energy Production v.s. Electricity Consumption",
-    legend: { position: 'bottom' },
-    colors: ["green", "orange"],
-    vAxis: {title: "Billion Btu"}
-  };
+//   let options = {
+//     title: "Florida Renewable Energy Production v.s. Electricity Consumption",
+//     legend: { position: 'bottom' },
+//     colors: ["green", "orange"],
+//     vAxis: {title: "Billion Btu"}
+//   };
 
-	let joinedData = google.visualization.data.join(data1, data2, 'full', [[0, 0]], [1], [1]);
-  let chart = new google.visualization.LineChart(document.getElementById("energy-chart"));
+// 	let joinedData = google.visualization.data.join(data1, data2, 'full', [[0, 0]], [1], [1]);
+//   let chart = new google.visualization.LineChart(document.getElementById("energy-chart"));
 
-  chart.draw(joinedData, options);
-}
+//   chart.draw(joinedData, options);
+// }
 
 
